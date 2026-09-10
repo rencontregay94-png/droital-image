@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply antialiased text-slate-900 bg-slate-50;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+}
+
+/* Dedicated Print Styles for High-Quality Official A4 Forms */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 10mm 12mm 10mm 12mm;
+  }
+
+  html, body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide interactive elements, modals, navbars and footers when printing */
+  header,
+  footer,
+  nav,
+  button,
+  .print\:hidden,
+  .no-print {
+    display: none !important;
+  }
+
+  /* When printing-mode is active, isolate ONLY the target paper document */
+  body.printing-mode * {
+    visibility: hidden !important;
+  }
+
+  body.printing-mode .printable-document,
+  body.printing-mode .printable-document *,
+  body.printing-mode #official-paper-document,
+  body.printing-mode #official-paper-document *,
+  body.printing-mode [id^="paper-doc-"],
+  body.printing-mode [id^="paper-doc-"] * {
+    visibility: visible !important;
+  }
+
+  body.printing-mode .printable-document,
+  body.printing-mode #official-paper-document,
+  body.printing-mode [id^="paper-doc-"] {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+  }
+
+  /* Ensure official paper document occupies full printable area */
+  #official-paper-document,
+  [id^="paper-doc-"] {
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}

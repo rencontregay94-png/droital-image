@@ -1,0 +1,97 @@
+{
+  "admin": {
+    "login": "admin",
+    "salt": "0fa3527e25a532e0b397e81dfc6fa00b",
+    "passwordHash": "e5a98b9fa993825d9170b6d643affc64b9de32c86abc822f95970e8e28560abf"
+  },
+  "formulaires": [
+    {
+      "id": "000004",
+      "parentCivilite": "Madame",
+      "parentNom": "dfgdfg",
+      "parentPrenom": "dfgdf",
+      "eleveNom": "dgd",
+      "elevePrenom": "dgd",
+      "classe": "2nde 3",
+      "choix": "refus",
+      "faitA": "Charenton-le-Pont",
+      "faitLe": "10/09/2026",
+      "dateCreation": "2026-09-10T18:31:39.089Z",
+      "statut": "a_imprimer",
+      "dateSignaturePrevue": "10/09/2026"
+    },
+    {
+      "id": "000003",
+      "parentCivilite": "Monsieur",
+      "parentNom": "JOUBIN",
+      "parentPrenom": "MIKAEL",
+      "eleveNom": "KLKL",
+      "elevePrenom": "KLKL",
+      "classe": "1ère G2",
+      "choix": "refus",
+      "faitA": "Charenton-le-Pont",
+      "faitLe": "10/09/2026",
+      "dateCreation": "2026-09-10T18:21:37.609Z",
+      "statut": "a_imprimer",
+      "dateSignaturePrevue": "10/09/2026"
+    },
+    {
+      "id": "000002",
+      "parentCivilite": "Monsieur",
+      "parentNom": "Kkk",
+      "parentPrenom": "Nnj",
+      "eleveNom": "Nkj",
+      "elevePrenom": "Nnn",
+      "classe": "5ème C",
+      "choix": "internet",
+      "faitA": "Charenton-le-Pont",
+      "faitLe": "09/09/2026",
+      "dateCreation": "2026-09-09T20:35:33.074Z",
+      "statut": "a_imprimer",
+      "dateSignaturePrevue": "09/09/2026"
+    },
+    {
+      "id": "000001",
+      "parentCivilite": "Monsieur",
+      "parentNom": "JOUBIN",
+      "parentPrenom": "Mikael",
+      "eleveNom": "Joubin",
+      "elevePrenom": "Denez",
+      "classe": "2nde 1",
+      "choix": "internet",
+      "faitA": "Charenton-le-Pont",
+      "faitLe": "09/09/2026",
+      "dateCreation": "2026-09-09T20:29:35.412Z",
+      "statut": "a_imprimer",
+      "dateSignaturePrevue": "09/09/2026"
+    }
+  ],
+  "nextId": 5,
+  "config": {
+    "classes": [
+      "6ème A",
+      "6ème B",
+      "6ème C",
+      "5ème A",
+      "5ème B",
+      "5ème C",
+      "4ème A",
+      "4ème B",
+      "4ème C",
+      "3ème A",
+      "3ème B",
+      "3ème C",
+      "2nde 1",
+      "2nde 2",
+      "2nde 3",
+      "1ère G1",
+      "1ère G2",
+      "1ère STMG",
+      "Terminale 1",
+      "Terminale 2",
+      "Terminale STMG"
+    ],
+    "destPersonne": "Mikael JOUBIN (Adjoint de direction)",
+    "dateLimite": "2026-09-18"
+  }
+}

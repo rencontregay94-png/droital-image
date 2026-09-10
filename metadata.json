@@ -1,0 +1,8 @@
+{
+  "name": "Droit à l'Image - Notre Dame des Missions",
+  "description": "Formulaire officiel en ligne d'autorisation du droit à l'image et génération PDF conforme pour l'Ensemble Scolaire Notre Dame des Missions Saint Pierre.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
