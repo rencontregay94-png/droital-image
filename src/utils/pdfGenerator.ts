@@ -78,6 +78,9 @@ export async function generatePdfFromElement(
   const JsPdfClass = getJsPdfConstructor();
 
   // Standard A4 dimensions in mm (210 x 297)
+  const a4Width = 210;
+  const a4Height = 297;
+
   const pdf = new JsPdfClass({
     orientation: 'portrait',
     unit: 'mm',
@@ -85,7 +88,6 @@ export async function generatePdfFromElement(
     compress: true,
   });
 
-  // Calculate proportional height
   const img = new Image();
   await new Promise<void>((resolve, reject) => {
     img.onload = () => resolve();
@@ -93,25 +95,22 @@ export async function generatePdfFromElement(
     img.src = imgData;
   });
 
-  const pdfWidth = 210;
-  const pdfHeight = (img.naturalHeight * pdfWidth) / img.naturalWidth;
+  // Calculate proportional dimensions so the entire document fits on EXACTLY 1 page
+  const ratio = img.naturalWidth / img.naturalHeight;
+  let renderWidth = a4Width;
+  let renderHeight = a4Width / ratio;
 
-  if (pdfHeight <= 298) {
-    pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, 297);
-  } else {
-    let heightLeft = pdfHeight;
-    let position = 0;
-
-    pdf.addImage(imgData, 'JPEG', 0, position, pdfWidth, pdfHeight);
-    heightLeft -= 297;
-
-    while (heightLeft > 0) {
-      position -= 297;
-      pdf.addPage();
-      pdf.addImage(imgData, 'JPEG', 0, position, pdfWidth, pdfHeight);
-      heightLeft -= 297;
-    }
+  // If the rendered height exceeds the A4 page height (297mm), scale down to fit 1 page
+  if (renderHeight > a4Height) {
+    renderHeight = a4Height;
+    renderWidth = a4Height * ratio;
   }
+
+  // Center horizontally and vertically on the single A4 sheet
+  const xOffset = Math.max(0, (a4Width - renderWidth) / 2);
+  const yOffset = Math.max(0, (a4Height - renderHeight) / 2);
+
+  pdf.addImage(imgData, 'JPEG', xOffset, yOffset, renderWidth, renderHeight);
 
   const blob = pdf.output('blob');
   const blobUrl = URL.createObjectURL(blob);
